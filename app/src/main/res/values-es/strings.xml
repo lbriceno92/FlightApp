@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VueloDragont</string>
+    <string name="search">Busqueda</string>
+    <string name="min_price">Precio min</string>
+    <string name="max_price">Precio max</string>
+    <string name="flights_updated">Vuelos actualizados</string>
+    <string name="error_updating">Error actualizando contenido</string>
+    <string name="initial_set_up">Inicializacion inicial, porfavor espera...</string>
+</resources>

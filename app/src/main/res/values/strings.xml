@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DragonsFlight</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="search">Search</string>
+    <string name="min_price">min price</string>
+    <string name="max_price">max price</string>
+    <string name="flights_updated">Flights updated</string>
+    <string name="error_updating">Error updating content</string>
+    <string name="initial_set_up">Initial set up, please wait...</string>
+</resources>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.lbriceno.dragonsflight.tools.Tools"/>
+        <variable
+            name="model"
+            type="com.lbriceno.dragonsflight.model.entities.Flight" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimaryDark"
+            android:minHeight="50dp">
+
+            <TextView
+                android:id="@+id/flight_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Tools.formatCurrency(model.price)+model.currency}"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FFF"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/flight_price"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toEndOf="@+id/flight_price"
+                android:layout_toRightOf="@+id/flight_price"
+                android:text="To:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/flight_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/flight_price"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/textView"
+                android:text="@{model.inbound.destination}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFF" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/white" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="50dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/flight_inbound"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_arrow_top_right_white_36dp" />
+
+            <ImageView
+                android:id="@+id/flight_inbound"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/imageView2"
+                android:layout_toRightOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/flight_inbound_airline"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/flight_inbound"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/flight_inbound"
+                android:layout_below="@+id/imageView2"
+                android:layout_marginBottom="10dp"
+                android:gravity="right"
+                android:paddingRight="6dp"
+                android:text="@{model.inbound.airline}"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/flight_inbound_arrival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageView5"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageView5"
+                android:text="@{Tools.format(model.inbound.departureDate,model.inbound.departureTime)}"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/flight_inbound_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/flight_inbound"
+                android:layout_alignEnd="@+id/flight_inbound_arrival"
+                android:layout_alignLeft="@+id/flight_inbound_arrival"
+                android:layout_alignRight="@+id/flight_inbound_arrival"
+                android:layout_alignStart="@+id/flight_inbound_arrival"
+                android:text="@{Tools.format(model.inbound.arrivalDate,model.inbound.arrivalTime)}"
+                android:textColor="#FFF" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_above="@+id/flight_inbound_airline"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/flight_inbound"
+                android:layout_toRightOf="@+id/flight_inbound"
+                android:src="@drawable/ic_airplane_takeoff_white_24dp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/flight_inbound"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/flight_inbound"
+                android:layout_toRightOf="@+id/flight_inbound"
+                android:src="@drawable/ic_airplane_landing_white_24dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="50dp">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_arrow_bottom_left_white_36dp" />
+
+            <ImageView
+                android:id="@+id/flight_outbound"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/imageView3"
+                android:layout_toRightOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/flight_outbound_airline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/flight_outbound"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/flight_outbound"
+                android:layout_below="@+id/imageView3"
+                android:layout_marginBottom="10dp"
+                android:gravity="right"
+                android:paddingRight="6dp"
+                android:text="@{model.outbound.airline}"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/flight_outbound_arrival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageView6"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageView6"
+                android:text="@{Tools.format(model.outbound.departureDate,model.outbound.departureTime)}"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/flight_outbound_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/imageView6"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageView6"
+                android:text="@{Tools.format(model.outbound.arrivalDate,model.outbound.arrivalTime)}"
+                android:textColor="#FFF" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/flight_outbound_airline"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/flight_outbound"
+                android:layout_toRightOf="@+id/flight_outbound"
+                android:src="@drawable/ic_airplane_landing_white_24dp" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_above="@+id/imageView6"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/flight_outbound"
+                android:layout_toRightOf="@+id/flight_outbound"
+                android:src="@drawable/ic_airplane_takeoff_white_24dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
